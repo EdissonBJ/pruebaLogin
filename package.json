@@ -1,0 +1,22 @@
+{
+  "name": "playwright-login-pom",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "playwright test --config=src/config/playwright.config.ts",
+    "test:headed": "playwright test --headed --config=src/config/playwright.config.ts",
+    "test:debug": "playwright test --debug --config=src/config/playwright.config.ts"
+  },
+  "description": "",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@playwright/test": "^1.60.0",
+    "@types/node": "^25.9.2"
+  },
+  "dependencies": {
+    "dotenv": "^17.4.2"
+  }
+}
