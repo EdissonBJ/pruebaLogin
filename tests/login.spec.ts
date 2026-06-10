@@ -23,7 +23,7 @@ test('Login falla con credenciales inválidas', async ({page}) =>{
     await loginPage.login('usuario invalido','clave mal');
 
     const error =await loginPage.getErrorMessage();
-    expect(error).toContain('Username and password no matching');
+    expect(error).toContain('Username and password no match');
 
 
 });
