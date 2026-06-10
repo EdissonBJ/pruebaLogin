@@ -1,3 +1,4 @@
+
 {
     "compilerOptions": {
       "target": "ES2022",           // ← Versión de JavaScript que genera (moderno)

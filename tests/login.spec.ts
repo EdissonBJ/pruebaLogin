@@ -1,7 +1,6 @@
 import { test, expect } from '@playwright/test';
-import { LoginPage } from '../src/pages/LoginPage.js';
-import { getEnv } from '../src/utils/env';
-
+import { LoginPage } from '../src/pages/LoginPage'; 
+import { getEnv } from '../src/utils/env';   
 
 
 test('Login exitoso con usuario estándar', async ({page})=>{
