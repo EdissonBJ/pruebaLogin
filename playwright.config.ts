@@ -1,23 +1,10 @@
 import { defineConfig, devices } from '@playwright/test';
 import dotenv from 'dotenv';
-import path from 'path';
 
-/**
- * Read environment variables from file.
- * https://github.com/motdotla/dotenv
- */
-// import dotenv from 'dotenv';
-// import path from 'path';
-// dotenv.config({ path: path.resolve(__dirname, '.env') });
-
-/**
- * See https://playwright.dev/docs/test-configuration.
- */
-// Cargar .env desde la raíz
-dotenv.config({ path: path.resolve(__dirname, '../../.env') });
+dotenv.config();
 
 export default defineConfig({
-  testDir: '../../tests',        // ← Ruta desde src/config/
+  testDir: './tests',  // ← IMPORTANTE: apunta a la carpeta tests en la raíz
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
@@ -26,15 +13,14 @@ export default defineConfig({
   use: {
     baseURL: process.env.BASE_URL,
     trace: 'on-first-retry',
-    screenshot: 'only-on-failure',
+    screenshot: 'on',  // ← Cambiado: toma captura en CADA paso
+    video: 'on',       // ← Graba video de toda la prueba
   },
-
-  /* Configure projects for major browsers */
   projects: [
-    {
-      name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
-    },
+    { name: 'chromium', use: { ...devices['Desktop Chrome'] } },
+    { name: 'firefox', use: { ...devices['Desktop Firefox'] } },
+  ],
+});
 
     /*{
       name: 'firefox',
@@ -65,7 +51,7 @@ export default defineConfig({
     //   name: 'Google Chrome',
     //   use: { ...devices['Desktop Chrome'], channel: 'chrome' },
     // },
-  ],
+ // ],
 
   /* Run your local dev server before starting the tests */
   // webServer: {
@@ -73,4 +59,4 @@ export default defineConfig({
   //   url: 'http://localhost:3000',
   //   reuseExistingServer: !process.env.CI,
   // },
-});
+//});

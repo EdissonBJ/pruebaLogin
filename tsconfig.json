@@ -1,15 +1,12 @@
-
 {
-    "compilerOptions": {
-      "target": "ES2022",           // ← Versión de JavaScript que genera (moderno)
-      "module": "commonjs",          // ← Sistema de módulos (Node.js usa commonjs)
-      "strict": true,                // ← Activa todas las reglas estrictas de TypeScript
-      "esModuleInterop": true,       // ← Permite importar módulos CommonJS correctamente
-      "skipLibCheck": true,          // ← Omite verificación de tipos en librerías (más rápido)
-      "forceConsistentCasingInFileNames": true, // ← Los nombres de archivo distinguen mayúsculas
-      "outDir": "./dist",            // ← Dónde se guardan los archivos .js compilados
-      "rootDir": "./src"             // ← Dónde están tus archivos .ts fuente
-    },
-    "include": ["src/**/*.ts", "tests/**/*.ts"],  // ← Archivos a incluir
-    "exclude": ["node_modules", "dist"]           // ← Archivos a ignorar
-  }
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "commonjs",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": ["src/**/*.ts", "tests/**/*.ts", "playwright.config.ts"],
+  "exclude": ["node_modules"]
+}
